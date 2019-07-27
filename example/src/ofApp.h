@@ -1,6 +1,3 @@
-#ifndef _TEST_APP
-#define _TEST_APP
-
 #include "ofxOpenCv.h"
 #include "ofxARToolkitPlus.h"
 
@@ -9,7 +6,7 @@
 // Uncomment this to use a camera instead of a video file
 //#define CAMERA_CONNECTED
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
@@ -49,5 +46,3 @@ class testApp : public ofBaseApp{
 		vector<ofPoint> displayImageCorners;
 	
 };
-
-#endif

@@ -10,14 +10,15 @@ OF_ROOT = ../../..
 # for example search paths like:
 # USER_CFLAGS = -I src/objects
 
-USER_CFLAGS = -I~/openframeworks0071/addons/ofxARtoolkitPlus/libs/ARToolKitPlus/include
+#USER_CFLAGS = -I~/oF/addons/ofxARtoolkitPlus/libs/ARToolKitPlus/include
 
 
 # USER_LDFLAGS allows to pass custom flags to the linker
 # for example libraries like:
 # USER_LDFLAGS = libs/libawesomelib.a
 
-USER_LDFLAGS = -rdynamic -L~/openframeworks0071/addons/ofxARtoolkitPlus/libs/ARToolKitPlus/lib/linux64
+#USER_LDFLAGS = -rdynamic -L~/oF/addons/ofxARtoolkitPlus/libs/ARToolKitPlus/lib/linux64
+#USER_LDFLAGS = libs/ARToolKitPlus/lib/linux64/libARToolKitPlus.a
 
 
 EXCLUDE_FROM_SOURCE="bin,.xcodeproj,obj"

@@ -141,7 +141,7 @@ void ofxARToolkitPlus::draw(int x, int y, int w, int h) {
 		// Draw the center point
 		ofFill();
 		ofSetColor(255, 0, 255 );
-		ofRect(marker.pos[0]-1, marker.pos[1]-1, 2, 2);
+		ofDrawRectangle(marker.pos[0]-1, marker.pos[1]-1, 2, 2);
 		
 		// Draw the inner rectangle
 		ofNoFill();

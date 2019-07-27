@@ -1,7 +1,7 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
 	width = 640;
 	height = 480;
 	
@@ -9,7 +9,7 @@ void testApp::setup(){
 	#ifdef CAMERA_CONNECTED
 	vidGrabber.initGrabber(width, height);
 	#else
-	vidPlayer.loadMovie("marker.mov");
+	vidPlayer.load("marker.mov");
 	vidPlayer.play();
 	vidPlayer.setLoopState(OF_LOOP_NORMAL);
 	#endif
@@ -19,14 +19,14 @@ void testApp::setup(){
 	grayThres.allocate(width, height);
 	
 	// Load the image we are going to distort
-	displayImage.loadImage("of.jpg");
+	displayImage.load("of.jpg");
 	// Load the corners of the image into the vector
-	int displayImageHalfWidth = displayImage.width / 2;
-	int displayImageHalfHeight = displayImage.height / 2;	
+	int displayImageHalfWidth = displayImage.getWidth() / 2;
+	int displayImageHalfHeight = displayImage.getHeight() / 2;
 	displayImageCorners.push_back(ofPoint(0, 0));
-	displayImageCorners.push_back(ofPoint(displayImage.width, 0));
-	displayImageCorners.push_back(ofPoint(displayImage.width, displayImage.height));
-	displayImageCorners.push_back(ofPoint(0, displayImage.height));	
+	displayImageCorners.push_back(ofPoint(displayImage.getWidth(), 0));
+	displayImageCorners.push_back(ofPoint(displayImage.getWidth(), displayImage.getHeight()));
+	displayImageCorners.push_back(ofPoint(0, displayImage.getHeight()));
 	
 	// This uses the default camera calibration and marker file
 	artk.setup(width, height);
@@ -51,7 +51,7 @@ void testApp::setup(){
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void ofApp::update(){
 	#ifdef CAMERA_CONNECTED
 	vidGrabber.update();
 	bool bNewFrame = vidGrabber.isFrameNew();
@@ -63,9 +63,9 @@ void testApp::update(){
 	if(bNewFrame) {
 		
 		#ifdef CAMERA_CONNECTED
-		colorImage.setFromPixels(vidGrabber.getPixels(), width, height);
+		colorImage.setFromPixels(vidGrabber.getPixels().getData(), width, height);
 		#else
-		colorImage.setFromPixels(vidPlayer.getPixels(), width, height);
+		colorImage.setFromPixels(vidPlayer.getPixels().getData(), width, height);
 		#endif
 		
 		// convert our camera image to grayscale
@@ -75,14 +75,14 @@ void testApp::update(){
 		grayThres.threshold(threshold);
 		
 		// Pass in the new image pixels to artk
-		artk.update(grayImage.getPixels());
+		artk.update(grayImage.getPixels().getData());
 		
 	}
 	
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
 	
 	// Main image
 	ofSetHexColor(0xffffff);
@@ -114,7 +114,7 @@ void testApp::draw(){
 		// ofPoint center = artk.getDetectedMarkerCenter(myIndex);
 		ofSetHexColor(0x0000ff);
 		for(int i=0;i<corners.size();i++) {
-			ofCircle(corners[i].x, corners[i].y, 10);
+			ofDrawCircle(corners[i].x, corners[i].y, 10);
 		}
         // Homography
         // Here we feed in the corners of an image and get back a homography matrix
@@ -158,7 +158,7 @@ void testApp::draw(){
 		ofEnableSmoothing();
 		ofSetColor(255, 255, 0, 50);	
 		for(int i=0; i<10; i++) {		
-			ofRect(-25, -25, 50, 50);
+			ofDrawRectangle(-25, -25, 50, 50);
 			ofTranslate(0, 0, i*1);
 		}
 	}
@@ -166,7 +166,7 @@ void testApp::draw(){
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void ofApp::keyPressed(int key){
 	if(key == OF_KEY_UP) {
 		artk.setThreshold(++threshold);
 		
@@ -181,32 +181,32 @@ void testApp::keyPressed(int key){
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void ofApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void ofApp::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void ofApp::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void ofApp::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void ofApp::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void ofApp::windowResized(int w, int h){
 
 }
 
