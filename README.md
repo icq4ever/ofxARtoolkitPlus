@@ -59,4 +59,4 @@ https://launchpad.net/artoolkitplus
 	- fix deprecated OF functions.
 - linux64 static library(.a) updated and tested.
 - win64 (vs) static library updated and tested with vs2019.
-- MacOS Sierra library updated and tested with macOS Mojave, Xcode 10.3
+- MacOS library updated and tested with MacOS Mojave, Xcode 10.3
