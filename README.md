@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ## Known issues
-currently, linux 64 only tested. </br>
+currently, linux 64 / win64 VS2019 only tested. </br>
 
 clone https://github.com/paroj/artoolkitplus repo, compile `static` library as written below.
 
@@ -59,3 +59,4 @@ https://launchpad.net/artoolkitplus
 	- testApp -> ofApp
 	- fix deprecated OF functions.
 - linux64 static library(.a) updated and tested.
+- win64 (vs) static library updated and tested with vs2019.
