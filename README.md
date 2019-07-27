@@ -5,7 +5,7 @@ original ofxAddons from
 https://github.com/karldd/ofxARToolkitPlus
 
 update repos from 
-fishkingsin/ofxARtoolkitPlus
+https://github.com/fishkingsin/ofxARtoolkitPlus
 
 ## Licence
 The code in this repository is available under the [MIT License](https://secure.wikimedia.org/wikipedia/en/wiki/Mit_license).
