@@ -1,13 +1,12 @@
 # ofxARToolKitPlus
-========
 
-Introduction
-------------
+## Introduction
 original ofxAddons from 
 https://github.com/karldd/ofxARToolkitPlus
 
-Licence
--------
+refactory repo</br>
+
+## Licence
 The code in this repository is available under the [MIT License](https://secure.wikimedia.org/wikipedia/en/wiki/Mit_license).
 
 Copyright (c) [17/12/2012] [James Kong]
@@ -18,43 +17,45 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Installation
-------------
-
-Dependencies
-------------
-ofxOpenCV
-
-Compatibility
-------------
+## Installation
 
 
-Known issues
-------------
+## Dependencies
+- ofxOpenCV
 
-for your costum compilationn
-build the static library rather that shared library
+## Compatibility
 
-in CMakeLists.txt line 32
-comment 
+
+## Known issues
+currently, linux 64 only tested. </br>
+
+clone https://github.com/paroj/artoolkitplus repo, compile `static` library as written below.
+
+| for your costum compilation, build the static library rather that shared library.
+|
+| in CMakeLists.txt line 32
+| comment 
+```
     #add_library(ARToolKitPlus SHARED ${HEADERS_AR} ${SOURCES_AR})
-replace with
+```
+| replace with
+```
 	add_library(ARToolKitPlus STATIC ${HEADERS_AR} ${SOURCES_AR})
+```
 
-Version history
-------------
+## Version history
 
 ### Version 0.1 (2013-01-30):
-
 
 and open source library from
 https://launchpad.net/artoolkitplus
 
--deprecated codeblock example
-
-+xcode example from 
-
-
-
+- deprecated codeblock example
++ xcode example from 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fishkingsin/ofxartoolkitplus/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+### Version 0.2 (2019-07-27):
+- fix for modern OF standard 
+	- testApp -> ofApp
+	- fix deprecated OF functions.
+- linux64 static library(.a) updated and tested.
