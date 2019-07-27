@@ -4,8 +4,6 @@
 original ofxAddons from 
 https://github.com/karldd/ofxARToolkitPlus
 
-refactory repo</br>
-
 ## Licence
 The code in this repository is available under the [MIT License](https://secure.wikimedia.org/wikipedia/en/wiki/Mit_license).
 
@@ -29,16 +27,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Known issues
 currently, linux 64 / win64 VS2019 only tested. </br>
 
+### unsupported OS
 clone https://github.com/paroj/artoolkitplus repo, compile `static` library as written below.
 
-| for your costum compilation, build the static library rather that shared library.
-|
-| in CMakeLists.txt line 32
-| comment 
+> for your custom compilation, build the static library rather that shared library.
+>
+> in CMakeLists.txt line 32
+> comment 
 ```
     #add_library(ARToolKitPlus SHARED ${HEADERS_AR} ${SOURCES_AR})
 ```
-| replace with
+> replace with
 ```
 	add_library(ARToolKitPlus STATIC ${HEADERS_AR} ${SOURCES_AR})
 ```
